@@ -1,0 +1,9 @@
+    1  mkdir ~/week1
+    2  cd ~/week1
+    3  sudo apt-get install gcc
+    4  cd /usr/bin; ls -r *gcc* > ~/week1/ex1.txt
+    5  cd ~/week1
+    6  touch ex3.sh
+    7  #!/bin/bash > ex3.sh
+    8  #!/bin/bash echo > ex3.sh
+    9  history > ex2.txt
