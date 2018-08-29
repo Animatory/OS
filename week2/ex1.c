@@ -9,9 +9,9 @@ int main() {
     i = INT_MAX;
     f = FLT_MAX;
     d = DBL_MAX;
-    printf("%i %i\n", i, sizeof(i));
-    printf("%f %i\n", f, sizeof(f));
-    printf("%lf %i\n", d, sizeof(d));
+    printf("%i %d\n", i, (int) sizeof(i));
+    printf("%f %d\n", f, (int) sizeof(f));
+    printf("%lf %d\n", d, (int) sizeof(d));
 
 }
 
