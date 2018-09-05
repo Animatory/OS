@@ -26,7 +26,6 @@ void insert_first(struct Linked_list *list, int value) {
 
 void insert_last(struct Linked_list *list, int value) {
     struct Linked_list *new = create_linked_list(value);
-
     while (list->next != NULL) {
         list = list->next;
     }
@@ -36,7 +35,6 @@ void insert_last(struct Linked_list *list, int value) {
 
 void insert_before(struct Linked_list *list, int value) {
     struct Linked_list *new = create_linked_list(value);
-
     if (list->prev != NULL){
         new->prev = list->prev;
         list->prev->next = new;
@@ -47,7 +45,6 @@ void insert_before(struct Linked_list *list, int value) {
 
 void insert_after(struct Linked_list *list, int value) {
     struct Linked_list *new = create_linked_list(value);
-
     if (list->next != NULL){
         new->next = list->next;
         list->next->prev = new;
@@ -57,6 +54,28 @@ void insert_after(struct Linked_list *list, int value) {
 };
 
 void delete_node(struct Linked_list *list, int value) {
+    if (list->data == value) {
+        if (list->next != NULL) {
+            struct Linked_list *next = list->next;
+            list->data = next->data;
+            if (next->next != NULL) {
+                next->next->prev = list;
+            }
+            list->next = next->next;
+            free(next);
+        } else if (list->prev != NULL){
+            struct Linked_list *prev = list->prev;
+            list->data = prev->data;
+            if (prev->prev != NULL) {
+                prev->prev->next = list;
+            }
+            list->prev = prev->prev;
+            free(prev);
+        } else {
+            free(list);
+        }
+        return;
+    }
     while (list->prev != NULL) {
         list = list->prev;
     }
@@ -73,6 +92,9 @@ void delete_node(struct Linked_list *list, int value) {
 };
 
 void print_list(struct Linked_list *list) {
+    if (list == NULL) {
+        return;
+    }
     while (list->prev != NULL) {
         list = list->prev;
     }
@@ -89,10 +111,12 @@ int main() {
     int i, n = sizeof(arr)/sizeof(arr[0]);
     struct Linked_list* list = create_linked_list(1);
     for (i = 0; i < n; i++) {
-        insert_last(list, arr[i]);
+        insert_first(list, arr[i]);
     }
+    printf("%d\n", list->data);
     print_list(list);
-    delete_node(list, 6);
+    delete_node(list, 1);
+    insert_first(list, 6);
     print_list(list);
     return 0;
 }
