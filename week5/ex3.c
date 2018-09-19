@@ -11,7 +11,7 @@ void *consume(void *tid) {
         pthread_join(producer, NULL);
     int value = pop_first(buffer);
     n--;
-    printf("Greetings from consumer. Current value: %d\n", value);
+    printf("Greetings from consumer. Value got: %d\n", value);
     pthread_exit(NULL);
 }
 
@@ -20,6 +20,7 @@ void *produce(void *tid) {
         pthread_join(consumer, NULL);
     insert_last(buffer, (int) tid);
     n++;
+    printf("Greetings from producer. Value inserted: %d\n", (int) tid);
     pthread_exit(NULL);
 }
 
