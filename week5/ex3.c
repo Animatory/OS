@@ -1,17 +1,10 @@
 #include "ex3.h"
+
 #define OS_EX3_H
 
 int n, max_size;
 pthread_t consumer, producer;
 struct Linked_list *buffer;
-
-void insert_last(struct Linked_list *list, int value);
-
-struct Linked_list *create_linked_list(int value);
-
-void delete_node(struct Linked_list *list, int value);
-
-int pop_first(struct Linked_list *list);
 
 void *consume(void *tid) {
     if (n <= 1)

@@ -11,3 +11,12 @@
 extern int n, max_size;
 extern pthread_t consumer, producer;
 extern struct Linked_list *buffer;
+
+
+void insert_last(struct Linked_list *list, int value);
+
+struct Linked_list *create_linked_list(int value);
+
+void delete_node(struct Linked_list *list, int value);
+
+int pop_first(struct Linked_list *list);
