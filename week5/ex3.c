@@ -1,11 +1,9 @@
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "ex3.h"
+#define OS_EX3_H
 
-extern int n = 1, max_size = 10;
-extern pthread_t consumer, producer;
-extern struct Linked_list *buffer;
+int n, max_size;
+pthread_t consumer, producer;
+struct Linked_list *buffer;
 
 void insert_last(struct Linked_list *list, int value);
 
@@ -20,7 +18,7 @@ void *consume(void *tid) {
         pthread_join(producer, NULL);
     int value = pop_first(buffer);
     n--;
-    printf("Greetings from thread %d\n", value);
+    printf("Greetings from consumer. Current value: %d\n", value);
     pthread_exit(NULL);
 }
 
@@ -34,6 +32,7 @@ void *produce(void *tid) {
 
 
 int main(int argc, char *argv[]) {
+    n = 1, max_size = 10;
     int status1, status2, i = 1;
     buffer = create_linked_list(0);
     while (1) {
