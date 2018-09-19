@@ -1,11 +1,11 @@
 #include "stdio.h"
+#include <stdio.h>
 
-int main(){
+int i = 32;
+
+int main(int i, char *b[]){
     printf("Enter two integers: ");
-    int a, b;
-    scanf("%d %d", &a, &b);
-    swap(&a, &b);
-    printf("%d %d", a, b);
+    printf("%d", i);
 }
 
 void swap(int *a, int *b) {
