@@ -18,8 +18,8 @@ int main() {
             write(fd[1], &pid2, sizeof(pid2));
         } else {
             printf("Magic is here\n");
-            for (int i = 0; i < 1000; ++i) {
-                printf("Magic appears here %d times\n", i);
+            for (int i = 1; i < 1000; ++i) {
+                printf("Magic appeared here %d times\n", i);
                 sleep(1);
             }
         }
