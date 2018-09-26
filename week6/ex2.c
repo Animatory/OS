@@ -12,7 +12,7 @@ int main() {
     write(fd[1], input, sizeof(input));
 
     int pid = fork();
-    if (pid != 0) {
+    if (pid == 0) {
         read(fd[0], output, sizeof(output));
         printf("Child read from pipe: %s", output);
     }
