@@ -4,18 +4,22 @@
   
 void notify_sigint(int signo) {
     printf("SIGINT handled!\n");
+    _exit(1);
 }
 
 void notify_sigkill(int signo) {
     printf("SIGKILL handled!\n");
+    _exit(1);
 }
 
 void notify_sigstop(int signo) {
     printf("SIGSTOP handled!\n");
+    _exit(1);
 }
 
 void notify_sigusr1(int signo) {
     printf("SIGUSR1 handled!\n");
+    _exit(1);
 }
 
 int main() { 
