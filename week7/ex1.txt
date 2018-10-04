@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+    184	      0	      0	    184	     b8	ex5.o
