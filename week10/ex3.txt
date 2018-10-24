@@ -1,0 +1,6 @@
+-rw-rw-rw-+ 1 Workflow Отсутствует 0 Oct 24 16:30 _ex3.txt
+-rwxrw-rwx+ 1 Workflow Отсутствует 0 Oct 24 16:30 _ex3.txt
+-rwxrwxrwx+ 1 Workflow Отсутствует 0 Oct 24 16:30 _ex3.txt
+660 for ex3.txt means read and write for owner and group and none permissions for others
+775 for ex3.txt means all permissions for owner and group and read and execute for others
+777 for ex3.txt means all permissions for all
